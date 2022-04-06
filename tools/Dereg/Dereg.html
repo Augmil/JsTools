@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DeReg</title>
+    <style>
+         :root {
+            --twelveColor: #ff0000, #ff9900, #00ff00, #6600ff, #ff3300, #ffff00, #00ffff, #ff00ff, #ff6600, #99ff00, #0000ff, #ff0066;
+            --c-0: #ff0000;
+            --c-1: #ff9900;
+            --c-2: #00ff00;
+            --c-3: #6600ff;
+            --c-4: #ff3300;
+            --c-5: #ffff00;
+            --c-6: #00ffff;
+            --c-7: #ff00ff;
+            --c-8: #ff6600;
+            --c-9: #99ff00;
+            --c-10: #0000ff;
+            --c-11: #ff0066;
+            --ca-0: #ff000080;
+            --ca-1: #ff990080;
+            --ca-2: #00ff0080;
+            --ca-3: #6600ff80;
+            --ca-4: #ff330080;
+            --ca-5: #ffff0080;
+            --ca-6: #00ffff80;
+            --ca-7: #ff00ff80;
+            --ca-8: #ff660080;
+            --ca-9: #99ff0080;
+            --ca-10: #0000ff80;
+            --ca-11: #ff006680;
+        }
+        
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav_bar {
+            height: 60px;
+            width: 100%;
+            background-color: #325d88;
+        }
+        
+        .nav_bar h1 {
+            margin: 0 50px;
+            line-height: 60px;
+            color: #d9dfdc;
+        }
+        
+        .main {
+            min-width: 950px;
+        }
+        
+        .con_warp {
+            width: 90%;
+            box-shadow: 0 0 5px #5f676e;
+            margin: 20px auto;
+            padding: 16px;
+            background-color: #eee;
+            overflow: auto;
+        }
+        
+        .title_wrap>input[type=button] {
+            padding: 5px 10px;
+            border-radius: 2px;
+            color: #00000080;
+            font-weight: bold;
+            border: none;
+            margin: 0 5px;
+            transition: 0.5s;
+            box-shadow: 0 0 0px #5f676e;
+            box-sizing: border-box;
+            background-color: var(--c-3);
+        }
+        
+        .title_wrap>input[type=button]:hover {
+            box-shadow: 0 0 10px rebeccapurple;
+        }
+        
+        .title_wrap>span {
+            position: relative;
+            font-size: 1.3em;
+            color: black;
+            margin-right: 0.5em;
+        }
+        
+        .title_wrap>span::after,
+        .title_wrap>span::before {
+            position: absolute;
+            display: block;
+            content: '⚙';
+            font-size: 0.5em;
+            right: -0.5em;
+        }
+        
+        .title_wrap>span::after {
+            top: 0;
+        }
+        
+        .title_wrap>span::before {
+            bottom: 0;
+        }
+        
+        .title_wrap>strong {
+            font-size: 1.2em;
+            color: #325d88;
+        }
+        
+        .input_reg_warp {
+            border: 1px solid #333;
+            border-radius: 3px;
+            line-height: 30px;
+            background-color: white;
+        }
+        
+        .input_reg_warp span {
+            display: inline-block;
+            padding: 0 16px;
+            background-color: #aaf;
+            text-align: center;
+        }
+        
+        #reg_con {
+            background: none;
+            outline: none;
+            border: none;
+            width: 500px;
+        }
+        
+        #reg_con:focus {
+            border: none;
+        }
+        
+        .input_reg_warp input[type=checkbox] {
+            margin-left: 10px;
+        }
+        
+        .con_warp>div {
+            margin-bottom: 20px;
+        }
+        
+        #input_str {
+            width: 100%;
+            outline: none;
+            padding: 8px;
+            margin: 5px 1px 3px 0px;
+            border: 1px solid #325d88;
+            box-sizing: border-box;
+            border-radius: 3px;
+        }
+        
+        #input_str:focus,
+        #select_results:focus {
+            box-shadow: 0 0 5px #325d88;
+            border: 1px solid #325d88;
+            outline: none;
+        }
+        
+        .con_title {
+            line-height: 25px;
+            color: #414140;
+        }
+        
+        .con_title label {
+            font-size: 0.9em;
+        }
+        
+        .con_main {
+            width: 100%;
+            min-height: 50px;
+            background-color: white;
+            padding: 16px;
+            border: 1px solid #325d88;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        
+        #select_results {
+            border: none;
+            text-align: center;
+            border-radius: 3px;
+        }
+        
+        .MR span,
+        .PR span {
+            display: inline-block;
+            border-radius: 3px;
+            min-height: 1em;
+            min-width: 0.5em;
+        }
+        
+        .MR span:nth-child(12n+0),
+        .p0 span {
+            background: var(--ca-0);
+            border: 1px solid var(--c-0);
+        }
+        
+        .MR span:nth-child(12n+1),
+        .p1 span {
+            background: var(--ca-1);
+            border: 1px solid var(--c-1);
+        }
+        
+        .MR span:nth-child(12n+2),
+        .p2 span {
+            background: var(--ca-2);
+            border: 1px solid var(--c-2);
+        }
+        
+        .MR span:nth-child(12n+3),
+        .p3 span {
+            background: var(--ca-3);
+            border: 1px solid var(--c-3);
+        }
+        
+        .MR span:nth-child(12n+4),
+        .p4 span {
+            background: var(--ca-4);
+            border: 1px solid var(--c-4);
+        }
+        
+        .MR span:nth-child(12n+5),
+        .p5 span {
+            background: var(--ca-5);
+            border: 1px solid var(--c-5);
+        }
+        
+        .MR span:nth-child(12n+6),
+        .p6 span {
+            background: var(--ca-6);
+            border: 1px solid var(--c-6);
+        }
+        
+        .MR span:nth-child(12n+7),
+        .p7 span {
+            background: var(--ca-7);
+            border: 1px solid var(--c-7);
+        }
+        
+        .MR span:nth-child(12n+8),
+        .p8 span {
+            background: var(--ca-8);
+            border: 1px solid var(--c-8);
+        }
+        
+        .MR span:nth-child(12n+9),
+        .p9 span {
+            background: var(--ca-9);
+            border: 1px solid var(--c-9);
+        }
+        
+        .MR span:nth-child(12n+10),
+        .p10 span {
+            background: var(--ca-10);
+            border: 1px solid var(--c-10);
+        }
+        
+        .MR span:nth-child(12n+11),
+        .p11 span {
+            background: var(--ca-11);
+            border: 1px solid var(--c-11);
+        }
+        
+        #parse_result div {
+            width: 100%;
+            margin-bottom: 5px;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav_bar">
+        <h1 title="该工具由Augmil独立创建，UI参考https://c.runoob.com/front-end/854/，为练习和调试正则而编辑。">javascript正则调试工具</h1>
+    </div>
+    <div class="main">
+        <div class="con_warp">
+            <div>
+                <div class="title_wrap">
+                    <span>⚙</span><strong>正则表达式在线测试</strong>
+                    <input type="button" value="全部清空" style="background-color: var(--c-1);" onclick="init();">
+                    <input type="button" value="尝试一下" style="background-color: var(--c-2);" onclick="test();">
+                    <input type="button" value="匹配中文" style="background-color: var(--c-3);" onclick="matchChinese();">
+                    <input type="button" value="匹配数字" style="background-color: var(--c-4);" onclick="matchNumbers();">
+                    <input type="button" value="匹配字母" style="background-color: var(--c-5);" onclick="matchLetters();">
+                    <input type="button" value="任意字符" style="background-color: var(--c-6);" onclick="matchAll();">
+                </div>
+            </div>
+            <div class="input_reg_warp">
+                <span id="reg_before">/</span>
+                <input type="text" id="reg_con" placeholder="请输入正则表达式">
+                <span id="reg_mode">/g</span>
+                <input type="checkbox" id="g" checked="1"><i>g</i>
+                <input type="checkbox" id="i"><i>i</i>
+                <input type="checkbox" id="m"><i>m</i>
+                <input type="checkbox" id="s"><i>s</i>
+                <input type="checkbox" id="u"><i>u</i>
+            </div>
+            <div>
+                <div class="con_title">
+                    <strong>请输入需要匹配的字符串</strong>
+                </div>
+                <textarea id="input_str" rows="5"></textarea>
+            </div>
+            <div>
+                <div class="con_title">
+                    <strong>找到处<span id="number">5</span>匹配</strong>
+                    <input type="checkbox" id="only_show_res">
+                    <label>只显示结果</label>
+                </div>
+                <div id="show_result" class="con_main MR" rows="5">
+                    <!--
+                        正则表达式（英语：
+                    <span>Regular</span>
+                    <span>Expression</span>，在代码中常简写为
+                    <span>regex</span>、
+                    <span>regexp</span>或
+                    <span>RE</span> ）使用单个字符串来描述、 匹配一系列符合某个句法规则的字符串搜索模式。 搜索模式可用于文本搜索和文本替换。
+                    -->
+                </div>
+            </div>
+            <div>
+                <div class="con_title">
+                    <strong>切换匹配项</strong>
+                    <input id="select_results" type="number" value="1" min="1" max="5">
+                </div>
+                <div id="parse_result" class="con_main" rows="5">
+                    <!--div class="PR p0"><strong>$& , p0 : </strong> 英语：<span>Regular</span>Expre</div>
+                    <div class="PR p1"><strong>$1 , p1 : </strong> 英语：<span>Re</span>gularExpre</div>
+                    <div class="PR p2"><strong>$2 , p2 : </strong> 英语：Regu<span>lar</span>Expre</div>
+                    <div class="PR p3"><strong>$3 , p3 : </strong> 英语：Regu<span>lar</span>Expre</div>
+                    <div class="PR p4"><strong>$4 , p4 : </strong> 英语：Regu<span>lar</span>Expre</div>
+                    <div class="PR p5"><strong>$5 , p5 : </strong> 英语：Regu<span>lar</span>Expre</div>
+                    <div class="PR p6"><strong>$6 , p6 : </strong> 英语：Regu<span>lar</span>Expre</div>
+                    <div class="PR p7"><strong>$7 , p7 : </strong> 英语：Regu<span>lar</span>Expre</div>
+                    <div class="PR p8"><strong>$8 , p8 : </strong> 英语：Regu<span>lar</span>Expre</div>
+                    <div class="PR p9"><strong>$9 , p9 : </strong> 英语：Regu<span>lar</span>Expre</div>
+                    <div class="PR p10"><strong>$10 , p10 : </strong> 英语：Regu<span>lar</span>Expre</div>
+                    <div class="PR p11"><strong>$11 , p11 : </strong> 英语：Regu<span>lar</span>Expre</div-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="res/Dereg.js"></script>
+
+</body>
+
+</html>
