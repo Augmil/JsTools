@@ -1,0 +1,114 @@
+/*放置目录的盒子*/
+
+.side_toc {
+    left: 0;
+    white-space: nowrap;
+    height: 100%;
+    overflow: auto;
+}
+
+.side_toc::-webkit-scrollbar {
+    display: none;
+}
+
+
+/*目录项*/
+
+.side_toc li {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.side_toc a {
+    color: black;
+    text-decoration: none;
+}
+
+.side_toc a:visited {
+    color: #888;
+}
+
+.side_toc a:hover {
+    color: blue;
+}
+
+
+/*正在阅读的项*/
+
+.toc_current_read {
+    box-sizing: border-box;
+    border-right: 5px #aaa solid;
+}
+
+
+/*下级目录*/
+
+.side_toc ul {
+    list-style: none;
+}
+
+
+/*折叠下级目录*/
+
+.toc_item_fold>ul {
+    display: none;
+}
+
+
+/*折叠按钮*/
+
+.side_toc ul>li>a::before {
+    display: inline-block;
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    top: 2px;
+    margin: 0 2px;
+}
+
+.toc_item_empty>a::before {
+    background-image: url(img/empty.svg);
+}
+
+.toc_item_fold>a::before {
+    background-image: url(img/chevron-right.svg);
+}
+
+.toc_item_unfold>a::before {
+    background-image: url(img/chevron-down.svg);
+}
+
+
+/*特殊美化样式*/
+
+.side_toc ul,
+.side_toc li {
+    box-sizing: border-box;
+}
+
+.side_toc ul {
+    position: relative;
+    padding-left: 20px;
+}
+
+.side_toc li>ul::before {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    display: block;
+    content: '';
+    width: 0px;
+    height: 0;
+    transition: 0.3s;
+}
+
+.side_toc li:hover>ul::before {
+    width: 15px;
+    height: calc(100% - 10px);
+    border-left: 1px #888 dashed;
+    border-bottom: 1px #888 dashed;
+}
