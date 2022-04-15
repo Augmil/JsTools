@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CreateSideToc</title>
+    <!--link rel="stylesheet" href="css/SideTocBasicstyle.css"-->
+    <link rel="stylesheet" href="css/SideTocBeautificationStyle.css">
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .side_toc_warp,
+        .content {
+            float: left;
+            padding: 8px;
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            height: 100vh;
+        }
+        
+        .side_toc_warp {
+            width: 350px;
+        }
+        
+        .content {
+            width: calc(100% - 350px);
+            right: 0;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="side_toc_warp">
+        <div class="side_toc"></div>
+    </div>
+
+    <div class="content">
+        <h1>一级标题</h1>
+        <h1>一级标题</h1>
+        <hr>
+        <h2 id="h2">二级标题</h2> <br>
+        <h2>二级标题</h2>
+        <h3>三级标题</h3> <br>
+        <h3>三级标题</h3> <br>
+        <h3>三级标题</h3> <br>
+        <h2>二级标题</h2>
+        <h3>三级标题</h3> <br>
+        <h3>三级标题</h3>
+        <h4>四级标题</h4> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h4>四级标题</h4>
+        <h5>五级标题</h5> <br>
+        <h5>五级标题</h5> <br>
+        <h5>五级标题</h5> <br>
+        <h4>四级标题</h4> <br>
+        <h2>二级标题</h2>
+        <h3>三级标题</h3> <br>
+        <h3>三级标题</h3> <br>
+        <h2>二级标题</h2>
+        <h3>三级标题</h3> <br>
+        <h3>三级标题</h3> <br>
+        <h4>四级标题</h4> <br>
+        <h4>四级标题</h4>
+        <h5>五级标题</h5>
+        <h6>六级标题</h6> <br>
+        <h6>六级标题</h6> <br>
+        <h6>六级标题</h6> <br>
+        <h5>五级标题</h5>
+        <h6>六级标题</h6> <br>
+        <h6>六级标题</h6> <br>
+        <h6>六级标题</h6> <br>
+        <h4>四级标题</h4> <br>
+        <h1>一级标题</h1>
+        <h1>一级标题</h1>
+        <div>
+            <div>
+                <h2>二级标题</h2>
+                <h3>三级标题</h3> <br>
+                <h3>三级标题</h3>
+                <h4>四级标题</h4> <br>
+                <h4>四级标题</h4>
+                <h5>五级标题</h5> <br>
+                <h5>五级标题</h5> <br>
+                <h5>五级标题</h5> <br>
+                <h4>四级标题</h4> <br>
+            </div>
+            <div>
+                <h2>二级标题</h2>
+                <h3>三级标题</h3> <br>
+                <h3>三级标题</h3> <br>
+            </div>
+            <div>
+                <h2>二级标题</h2>
+                <h3>三级标题</h3> <br>
+                <h3>三级标题</h3> <br>
+                <h4>四级标题</h4> <br>
+                <h4>四级标题</h4>
+                <h5>五级标题</h5>
+                <h6>六级标题</h6> <br>
+                <h6>六级标题</h6> <br>
+                <h6>六级标题</h6> <br>
+                <h5>五级标题</h5>
+                <h6>六级标题</h6> <br>
+                <h6>六级标题</h6> <br>
+                <h6>六级标题</h6> <br>
+                <h5>五级标题</h5>
+                <h5>五级标题</h5>
+                <h5>五级标题</h5>
+                <h5>五级标题</h5>
+                <h5>五级标题</h5>
+            </div>
+        </div>
+    </div>
+    <!--script src="js/CreateSideToc_v1.0.0.js"></script-->
+    <!--script src="js/CreateSideToc_v1.1.0.js"></script-->
+    <script src="js/CreateSideToc_v1.1.1.js"></script>
+    <script>
+        // 使用测试
+        var source = document.querySelector('.content');
+        var target = document.querySelector('.side_toc');
+
+        createSideToc(source, target, {
+            range: [1, 6],
+        })
+    </script>
+</body>
+
+</html>
