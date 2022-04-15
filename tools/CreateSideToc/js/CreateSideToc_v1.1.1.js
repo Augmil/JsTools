@@ -19,7 +19,7 @@
  *      liCurrentReadClassName = 'toc_current_read'
  *  } = install;
  * 
- * @version 1.1.0 
+ * @version 1.1.1
  * 修复折叠状态下点击项目丢失项目标记的bug
  * 添加目录跟随内容变化时的滚动动画
  * 优化代码提升性能
