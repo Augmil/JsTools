@@ -8,7 +8,6 @@ courier.subscribe = function(newsname, demand, subscription) {
     if (typeof newsname === 'string' && typeof demand === 'function') {
         // 首次订阅该消息
         if (!this.news[newsname]) {
-            console.log('首次订阅该消息');
             this.news[newsname] = {};
             // 添加一个不可枚举的可变length属性
             Object.defineProperty(this.news[newsname], "length", {
