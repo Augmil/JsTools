@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./BaseInt.js"></script>
+    <script>
+        var bi2 = new BaseInt('100110110', 2);
+        var bi8 = new BaseInt('7534562', 8);
+        var bi10 = new BaseInt('96353', 10);
+        var bi12 = new BaseInt('a5b68', 12);
+        var bi16 = new BaseInt('F53da', 16);
+        var bi24 = new BaseInt('n2adf5', 24);
+        var bi24 = new BaseInt('o5st86', 30);
+        var bi36 = new BaseInt('Fz63X8', 36);
+        var bir = new BaseInt('F36dfad'); // 16
+
+        console.log(bi2, bi8, bi10, bi12, bi16, bi24, bi24, bi36, bir);
+        // 该构造器所得类可看作 BigInt 可直接用于计算
+        var c = bi2 + bi8 - bi10 * bi12 / ((bi16 - bi24) + bi24) - bi36 - bir;
+        console.log(c);
+    </script>
+</body>
+
+</html>
