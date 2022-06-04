@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>简单的订阅与发布</title>
+    <script src="Courier_v0.0.1.js"></script>
+</head>
+
+<body>
+    <h1>消息订阅与发布</h1>
+    <h2>使用示例</h2>
+    <pre><code>
+        courier.subscribe('msg', (data)=> {
+            alert('收到了数据' + data + '请前往控制台查看')
+            console.log('收到了数据', data);
+        })
+    </code></pre>
+    <button onclick="subscribe('msg',msgCallback)">订阅消息</button>
+    <pre><code>
+        courier.publish('msg', { a: 0, b: 1, c: 2})
+    </code></pre>
+    <button onclick="publish('msg',{ a: 0, b: 1, c: 2})">发布消息</button>
+    <script>
+        function subscribe(msgname, callback) {
+            courier.subscribe(msgname, callback)
+        }
+
+        function msgCallback(data) {
+            alert('收到了数据' + data + '请前往控制台查看')
+            console.log('收到了数据', data);
+        }
+
+        function publish(msgname, data) {
+            courier.publish(msgname, data)
+        }
+    </script>
+</body>
+
+</html>
